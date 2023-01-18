@@ -19,10 +19,10 @@ public class OrderEntity {
 
     @Column
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dateCreated;
+    private LocalDate orderDateCreated;
 
     @Column
-    private String status;
+    private String orderStatus;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "orderProductPK.orderEntity")
@@ -35,8 +35,8 @@ public class OrderEntity {
 
     public OrderEntity(Long orderId, LocalDate dateCreated, String status, List<OrderProduct> orderProducts) {
         this.orderId = orderId;
-        this.dateCreated = dateCreated;
-        this.status = status;
+        this.orderDateCreated = dateCreated;
+        this.orderStatus = status;
         this.orderProducts = orderProducts;
     }
 
@@ -49,20 +49,20 @@ public class OrderEntity {
         this.orderId = orderId;
     }
 
-    public LocalDate getDateCreated() {
-        return dateCreated;
+    public LocalDate getOrderDateCreated() {
+        return orderDateCreated;
     }
 
-    public void setDateCreated(LocalDate dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setOrderDateCreated(LocalDate dateCreated) {
+        this.orderDateCreated = dateCreated;
     }
 
-    public String getStatus() {
-        return status;
+    public String getOrderStatus() {
+        return orderStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setOrderStatus(String status) {
+        this.orderStatus = status;
     }
 
     public List<OrderProduct> getOrderProducts() {
