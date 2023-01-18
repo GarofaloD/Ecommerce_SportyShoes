@@ -54,7 +54,7 @@ public class OrderProduct {
 
     @Transient
     public Double getTotalPrice() {
-        return getProductEntity().getPrice() * getQuantity();
+        return getProductEntity().getProductPrice() * getQuantity();
     }
 
 }

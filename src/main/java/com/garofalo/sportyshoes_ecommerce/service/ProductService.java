@@ -31,10 +31,15 @@ public class ProductService {
             ProductEntity oldProductEntity = productRepository.findById(id).get();
 
             oldProductEntity.setProductName(productEntity.getProductName());
-            oldProductEntity.setPDescription(productEntity.getDescription());
+            oldProductEntity.setProductDescription(productEntity.getProductDescription());
 
             productRepository.save(oldProductEntity);
         }
     }
+
+    public void deleteProduct(long id){
+        productRepository.deleteById(id);
+    }
+
 
 }
