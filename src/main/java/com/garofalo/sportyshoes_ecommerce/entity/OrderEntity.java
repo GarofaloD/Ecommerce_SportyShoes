@@ -25,7 +25,7 @@ public class OrderEntity {
     private String status;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "pk.order")
+    @OneToMany(mappedBy = "orderProductPK.orderEntity")
     private List<OrderProduct> orderProducts = new ArrayList<>();
 
 

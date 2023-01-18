@@ -12,7 +12,7 @@ public class OrderProduct {
     //PROPERTIES
     @EmbeddedId
     @JsonIgnore
-    private OrderProductPK pk;
+    private OrderProductPK orderProductPK;
 
     @Column(nullable = false)
     private Integer quantity;
@@ -22,20 +22,20 @@ public class OrderProduct {
     public OrderProduct() {
     }
 
-    public OrderProduct(OrderEntity order, ProductEntity product, Integer quantity) {
-        pk = new OrderProductPK();
-        pk.setOrderEntity(order);
-        pk.setProductEntity(product);
+    public OrderProduct(OrderEntity orderEntity, ProductEntity productEntity, Integer quantity) {
+        orderProductPK = new OrderProductPK();
+        orderProductPK.setOrderEntity(orderEntity);
+        orderProductPK.setProductEntity(productEntity);
         this.quantity = quantity;
     }
 
     //GETTERS & SETTERS
-    public OrderProductPK getPk() {
-        return pk;
+    public OrderProductPK getOrderProductPK() {
+        return orderProductPK;
     }
 
-    public void setPk(OrderProductPK pk) {
-        this.pk = pk;
+    public void setOrderProductPK(OrderProductPK pk) {
+        this.orderProductPK = pk;
     }
 
     public Integer getQuantity() {
@@ -49,7 +49,7 @@ public class OrderProduct {
     //CUSTOM METHODS
     @Transient
     public ProductEntity getProductEntity() {
-        return this.pk.getProductEntity();
+        return this.orderProductPK.getProductEntity();
     }
 
     @Transient
