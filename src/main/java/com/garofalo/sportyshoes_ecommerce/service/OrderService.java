@@ -6,7 +6,8 @@ import com.garofalo.sportyshoes_ecommerce.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.time.LocalDate;
+import java.util.*;
 
 @Service
 public class OrderService {
@@ -23,6 +24,8 @@ public class OrderService {
     }
 
     public void addOrder(OrderEntity orderEntity){
+
+        orderEntity.setOrderDateCreated(LocalDate.now());
         orderRepository.save(orderEntity);
     }
 

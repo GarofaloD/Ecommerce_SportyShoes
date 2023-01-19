@@ -27,6 +27,14 @@ public class ProductEntity {
     }
 
 
+
+
+    public ProductEntity(String productName, Double productPrice, String productDescription) {
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productDescription = productDescription;
+    }
+
     public ProductEntity(Long productId, String productName, Double productPrice, String productDescription) {
         this.productId = productId;
         this.productName = productName;
