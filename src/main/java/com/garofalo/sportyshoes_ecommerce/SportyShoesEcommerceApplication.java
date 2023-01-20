@@ -26,26 +26,4 @@ public class SportyShoesEcommerceApplication {
         SpringApplication.run(SportyShoesEcommerceApplication.class, args);
     }
 
-    @Bean
-    CommandLineRunner runner1(ProductService productService, OrderService orderService) {
-        return args -> {
-            productService.addProduct(new ProductEntity("Nike shoes", 200.00, "Nike running shoes"));
-            productService.addProduct(new ProductEntity( "Reebok Hat", 20.00, "Reebok Sports Hat"));
-            productService.addProduct(new ProductEntity("UnderArmour Shirt", 80.00, "UnderArmour Gym Shirt"));
-            productService.addProduct(new ProductEntity("Polo Hat", 50.00, "Polo Golf Hat"));
-            productService.addProduct(new ProductEntity("Puma Shoes", 100.00, "Puma Basketball shoes"));
-            productService.addProduct(new ProductEntity("Adidas Shorts", 30.00, "Adidas Gym Shorts"));
-            productService.addProduct(new ProductEntity("Nike Sweater", 60.00, "Nike Casual Sweater"));
-
-
-
-
-
-
-        };
-    }
-
-
-
-
 }
