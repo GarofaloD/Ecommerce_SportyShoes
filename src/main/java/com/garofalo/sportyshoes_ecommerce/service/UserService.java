@@ -26,6 +26,17 @@ public class UserService {
         userRepository.save(userEntity);
     }
 
+    public void updatePassword(long id, UserEntity userEntity){
+        if(userRepository.findById(id).isPresent()){
+
+            UserEntity oldUserEntity = userRepository.findById(id).get();
+            oldUserEntity.setPassword(userEntity.getPassword());
+
+            userRepository.save(oldUserEntity);
+
+
+        }
+    }
 
     public void deleteUser(long id){
         userRepository.deleteById(id);

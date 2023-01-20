@@ -2,6 +2,7 @@ package com.garofalo.sportyshoes_ecommerce.controller;
 
 import com.garofalo.sportyshoes_ecommerce.entity.UserEntity;
 import com.garofalo.sportyshoes_ecommerce.service.UserService;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +30,12 @@ public class UserController {
         userService.addUser(userEntity);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/user")
+    @RequestMapping(method = RequestMethod.PUT, value = "/user/{id}")
+    public void updateUserPassword(@PathVariable long id, @RequestBody UserEntity userEntity){
+        userService.updatePassword(id, userEntity);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/user/{id}")
     public void deleteUser(long id){
         userService.deleteUser(id);
     }

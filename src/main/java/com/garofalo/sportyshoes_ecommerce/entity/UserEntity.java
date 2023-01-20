@@ -17,18 +17,27 @@ public class UserEntity {
     @Column
     private String email;
 
+    @Column
+    private String password;
+
     public UserEntity() {
     }
 
     public UserEntity(String name, String email) {
         this.name = name;
         this.email = email;
+        this.password = password;
+    }
+
+    public UserEntity(String password) {
+        this.password = password;
     }
 
     public UserEntity(Long id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.password = password;
     }
 
     public Long getId() {
@@ -55,4 +64,11 @@ public class UserEntity {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
