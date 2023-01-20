@@ -1,6 +1,6 @@
 package com.garofalo.sportyshoes_ecommerce.controller;
 
-import com.garofalo.sportyshoes_ecommerce.dto.OrderFormDto;
+
 import com.garofalo.sportyshoes_ecommerce.dto.OrderProductDto;
 import com.garofalo.sportyshoes_ecommerce.entity.OrderEntity;
 import com.garofalo.sportyshoes_ecommerce.entity.OrderProduct;
@@ -37,15 +37,14 @@ public class OrderController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value="/order")
-    public void addOrder(@RequestBody OrderFormDto orderForm) {
+    public void addOrder(@RequestBody OrderFormDto orderFormDto) {
 
-        List<OrderProductDto> formDtos = orderForm.getProductOrders();
+        List<OrderProductDto> formDtos = orderFormDto.getProductOrders();
 
         //Adding order itself
         OrderEntity orderEntity = new OrderEntity();
         orderEntity.setOrderStatus("Placed");
         orderService.addOrder(orderEntity);
-
 
 
         List<OrderProduct> orderProducts = new ArrayList<>();
@@ -72,6 +71,23 @@ public class OrderController {
 
 
 
+
+    //Everything will be passed from this inner class into the addOrder() call.
+    public static class OrderFormDto {
+
+        //Properties
+         private List<OrderProductDto> productOrders;
+
+
+         //Getters & Setters
+         public List<OrderProductDto> getProductOrders() {
+            return productOrders;
+        }
+         public void setProductOrders(List<OrderProductDto> productOrders) {
+            productOrders = productOrders;
+        }
+
+    }
 
 
 

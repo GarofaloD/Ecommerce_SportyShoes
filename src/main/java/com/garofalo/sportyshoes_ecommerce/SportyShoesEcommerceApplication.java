@@ -1,11 +1,23 @@
 package com.garofalo.sportyshoes_ecommerce;
 
+import com.garofalo.sportyshoes_ecommerce.entity.OrderEntity;
+import com.garofalo.sportyshoes_ecommerce.entity.OrderProduct;
 import com.garofalo.sportyshoes_ecommerce.entity.ProductEntity;
+import com.garofalo.sportyshoes_ecommerce.service.OrderService;
 import com.garofalo.sportyshoes_ecommerce.service.ProductService;
+import com.garofalo.sportyshoes_ecommerce.*;
+
+import jakarta.persistence.criteria.Order;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.domain.Sort;
+import java.util.*;
+
+
+import java.time.LocalDate;
 
 @SpringBootApplication
 public class SportyShoesEcommerceApplication {
@@ -15,7 +27,7 @@ public class SportyShoesEcommerceApplication {
     }
 
     @Bean
-    CommandLineRunner runner(ProductService productService) {
+    CommandLineRunner runner1(ProductService productService, OrderService orderService) {
         return args -> {
             productService.addProduct(new ProductEntity("Nike shoes", 200.00, "Nike running shoes"));
             productService.addProduct(new ProductEntity( "Reebok Hat", 20.00, "Reebok Sports Hat"));
@@ -25,7 +37,15 @@ public class SportyShoesEcommerceApplication {
             productService.addProduct(new ProductEntity("Adidas Shorts", 30.00, "Adidas Gym Shorts"));
             productService.addProduct(new ProductEntity("Nike Sweater", 60.00, "Nike Casual Sweater"));
 
+
+
+
+
+
         };
     }
+
+
+
 
 }

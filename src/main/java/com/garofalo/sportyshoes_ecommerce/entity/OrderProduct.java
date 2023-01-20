@@ -22,6 +22,7 @@ public class OrderProduct {
     public OrderProduct() {
     }
 
+
     public OrderProduct(OrderEntity orderEntity, ProductEntity productEntity, Integer quantity) {
         orderProductPK = new OrderProductPK();
         orderProductPK.setOrderEntity(orderEntity);

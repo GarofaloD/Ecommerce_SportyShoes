@@ -1,14 +1,17 @@
 package com.garofalo.sportyshoes_ecommerce.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.*;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "order_entity")
+@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="orderProducts")
 public class OrderEntity {
 
     //PROPERTIES
@@ -31,6 +34,12 @@ public class OrderEntity {
 
     //CONSTRUCTORS
     public OrderEntity() {
+    }
+
+    public OrderEntity(LocalDate orderDateCreated, String orderStatus, List<OrderProduct> orderProducts) {
+        this.orderDateCreated = orderDateCreated;
+        this.orderStatus = orderStatus;
+        this.orderProducts = orderProducts;
     }
 
     public OrderEntity(Long orderId, LocalDate dateCreated, String status, List<OrderProduct> orderProducts) {
