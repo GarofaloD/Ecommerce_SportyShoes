@@ -84,7 +84,7 @@ public class OrderController {
             return productOrders;
         }
          public void setProductOrders(List<OrderProductDto> productOrders) {
-            productOrders = productOrders;
+            this.productOrders = productOrders;
         }
 
     }
