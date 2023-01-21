@@ -27,7 +27,7 @@ public class OrderController {
     OrderProductService orderProductService;
 
     @RequestMapping("/allorders")
-    public List<OrderEntity> getAllOrders(){
+    public Iterable<OrderEntity> getAllOrders(){
         return orderService.getAllOrders();
     }
 

@@ -15,7 +15,7 @@ public class OrderService {
     @Autowired
     OrderRepository orderRepository;
 
-    public List<OrderEntity> getAllOrders(){
+    public Iterable<OrderEntity> getAllOrders(){
         return orderRepository.findAll();
     }
 
