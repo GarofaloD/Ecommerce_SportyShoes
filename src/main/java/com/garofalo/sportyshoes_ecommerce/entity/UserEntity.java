@@ -23,7 +23,7 @@ public class UserEntity {
     public UserEntity() {
     }
 
-    public UserEntity(String name, String email) {
+    public UserEntity(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -33,7 +33,7 @@ public class UserEntity {
         this.password = password;
     }
 
-    public UserEntity(Long id, String name, String email) {
+    public UserEntity(Long id, String name, String email, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
