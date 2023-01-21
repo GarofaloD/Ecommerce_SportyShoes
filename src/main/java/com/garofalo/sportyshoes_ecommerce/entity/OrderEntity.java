@@ -86,8 +86,8 @@ public class OrderEntity {
     @Transient
     public double getTotalOrderPrice(){
         double sum = 0D;
-        List<OrderProduct> orderproducts = getOrderProducts();
-        for (OrderProduct orderProduct : orderproducts){
+        List<OrderProduct> orderProducts = getOrderProducts();
+        for (OrderProduct orderProduct : orderProducts){
             sum += orderProduct.getTotalPrice();
         }
         return sum;

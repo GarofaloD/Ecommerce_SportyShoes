@@ -16,11 +16,11 @@ import java.io.Serializable;
 public class OrderProductPK implements Serializable {
 
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "order_id")
     private OrderEntity orderEntity;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "product_id")
     private ProductEntity productEntity;
 
